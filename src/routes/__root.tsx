@@ -13,9 +13,12 @@ import TanStackQueryLayout from "../integrations/tanstack-query/layout.tsx";
 import appCss from "../styles.css?url";
 
 import type { QueryClient } from "@tanstack/react-query";
+import type { TRPCRouter } from "@/trpc/router.ts";
+import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 
 interface MyRouterContext {
   queryClient: QueryClient;
+  trpc: TRPCOptionsProxy<TRPCRouter>;
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({

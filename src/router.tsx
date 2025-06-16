@@ -17,6 +17,11 @@ export const createRouter = () => {
       },
       scrollRestoration: true,
       defaultPreloadStaleTime: 0,
+      Wrap: (props: { children: React.ReactNode }) => {
+        return (
+          <TanstackQuery.Provider>{props.children}</TanstackQuery.Provider>
+        );
+      },
     }),
     TanstackQuery.getContext().queryClient,
   );
