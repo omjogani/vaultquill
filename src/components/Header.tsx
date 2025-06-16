@@ -1,6 +1,6 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
 
-import TanStackChatHeaderUser from '../integrations/tanchat/header-user.tsx'
+import TanStackChatHeaderUser from "../integrations/tanchat/header-user.tsx";
 
 export default function Header() {
   return (
@@ -51,5 +51,5 @@ export default function Header() {
         <TanStackChatHeaderUser />
       </div>
     </header>
-  )
+  );
 }
