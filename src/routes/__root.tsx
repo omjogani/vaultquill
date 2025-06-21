@@ -1,6 +1,6 @@
 import {
-  Outlet,
   HeadContent,
+  Outlet,
   Scripts,
   createRootRouteWithContext,
 } from "@tanstack/react-router";
@@ -42,7 +42,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
     ],
   }),
- 
+
   component: () => (
     <AppClerkProvider>
       <CartStoreProvider>

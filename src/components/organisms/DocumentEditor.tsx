@@ -1,6 +1,7 @@
-import { Save, MoreHorizontal, Share, Download } from "lucide-react";
+import { Download, MoreHorizontal, Save, Share } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 import { Icon } from "@/components/atoms/Icon";
-import { H1, Caption } from "@/components/atoms/Typography";
+import { Caption, H1 } from "@/components/atoms/Typography";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -8,11 +9,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
   DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { useState, useEffect, useCallback } from "react";
 
 interface Document {
   id: string;

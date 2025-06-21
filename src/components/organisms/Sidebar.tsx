@@ -1,4 +1,5 @@
 import { Plus, Settings } from "lucide-react";
+import { useState } from "react";
 import { Icon } from "@/components/atoms/Icon";
 import { H4 } from "@/components/atoms/Typography";
 import { Avatar } from "@/components/atoms/Avatar";
@@ -8,14 +9,13 @@ import { SearchBar } from "@/components/molecules/SearchBar";
 import { CollectionItem } from "@/components/molecules/CollectionItem";
 import { DocumentItem } from "@/components/molecules/DocumentItem";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 interface Collection {
   id: string;
   name: string;
   isExpanded?: boolean;
-  children?: Collection[];
-  documents?: Document[];
+  children?: Array<Collection>;
+  documents?: Array<Document>;
 }
 
 interface Document {
@@ -26,8 +26,8 @@ interface Document {
 }
 
 interface SidebarProps {
-  collections?: Collection[];
-  documents?: Document[];
+  collections?: Array<Collection>;
+  documents?: Array<Document>;
   selectedDocumentId?: string;
   selectedCollectionId?: string;
   onDocumentSelect?: (documentId: string) => void;

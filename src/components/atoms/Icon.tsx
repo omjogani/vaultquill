@@ -1,25 +1,30 @@
-import type { LucideIcon } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import type { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface IconProps {
-  icon: LucideIcon
-  size?: 'sm' | 'md' | 'lg' | 'xl'
-  className?: string
-  onClick?: () => void
+  icon: LucideIcon;
+  size?: "sm" | "md" | "lg" | "xl";
+  className?: string;
+  onClick?: () => void;
 }
 
 const sizeClasses = {
-  sm: 'h-4 w-4',
-  md: 'h-5 w-5',
-  lg: 'h-6 w-6',
-  xl: 'h-8 w-8',
-}
+  sm: "h-4 w-4",
+  md: "h-5 w-5",
+  lg: "h-6 w-6",
+  xl: "h-8 w-8",
+};
 
-export const Icon = ({ icon: IconComponent, size = 'md', className, onClick }: IconProps) => {
+export const Icon = ({
+  icon: IconComponent,
+  size = "md",
+  className,
+  onClick,
+}: IconProps) => {
   return (
     <IconComponent
-      className={cn(sizeClasses[size], onClick && 'cursor-pointer', className)}
+      className={cn(sizeClasses[size], onClick && "cursor-pointer", className)}
       onClick={onClick}
     />
-  )
-} 
+  );
+};

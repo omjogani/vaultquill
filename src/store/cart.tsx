@@ -1,7 +1,7 @@
-import { useContext, createContext } from "react";
+import { createContext, useContext } from "react";
 import { useUser } from "@clerk/clerk-react";
-import { useTRPC } from "@/trpc/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { useTRPC } from "@/trpc/react";
 
 function useCartStore() {
   const { isSignedIn } = useUser();
@@ -30,7 +30,7 @@ function useCartStore() {
 }
 
 const CartStoreContext = createContext<ReturnType<typeof useCartStore> | null>(
-  null
+  null,
 );
 
 export const CartStoreProvider = ({

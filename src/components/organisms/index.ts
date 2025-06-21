@@ -1,2 +1,2 @@
-export { Sidebar } from './Sidebar'
-export { DocumentEditor } from './DocumentEditor' 
+export { Sidebar } from "./Sidebar";
+export { DocumentEditor } from "./DocumentEditor";

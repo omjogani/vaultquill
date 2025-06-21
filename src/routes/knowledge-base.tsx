@@ -1,18 +1,18 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { KnowledgeBasePage } from '@/components/pages/KnowledgeBasePage'
+import { createFileRoute } from "@tanstack/react-router";
+import { KnowledgeBasePage } from "@/components/pages/KnowledgeBasePage";
 
-export const Route = createFileRoute('/knowledge-base')({
+export const Route = createFileRoute("/knowledge-base")({
   component: KnowledgeBaseComponent,
-})
+});
 
 function KnowledgeBaseComponent() {
   return (
-    <KnowledgeBasePage 
+    <KnowledgeBasePage
       user={{
-        name: 'VaultQuill User',
-        email: 'user@vaultquill.com',
+        name: "VaultQuill User",
+        email: "user@vaultquill.com",
         avatar: undefined,
       }}
     />
-  )
-} 
+  );
+}

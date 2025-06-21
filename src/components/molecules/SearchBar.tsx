@@ -1,17 +1,17 @@
-import { Search, X } from 'lucide-react'
-import { Icon } from '@/components/atoms/Icon'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { useState } from 'react'
+import { Search, X } from "lucide-react";
+import { useState } from "react";
+import { Icon } from "@/components/atoms/Icon";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
-  placeholder?: string
-  value?: string
-  onChange?: (value: string) => void
-  onClear?: () => void
-  className?: string
-  autoFocus?: boolean
+  placeholder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
+  onClear?: () => void;
+  className?: string;
+  autoFocus?: boolean;
 }
 
 export const SearchBar = ({
@@ -22,16 +22,16 @@ export const SearchBar = ({
   className,
   autoFocus = false,
 }: SearchBarProps) => {
-  const [isFocused, setIsFocused] = useState(false)
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value)
-  }
+    onChange?.(e.target.value);
+  };
 
   const handleClear = () => {
-    onChange?.("")
-    onClear?.()
-  }
+    onChange?.("");
+    onClear?.();
+  };
 
   return (
     <div className={cn("relative", className)}>
@@ -41,7 +41,7 @@ export const SearchBar = ({
           size="sm"
           className={cn(
             "absolute left-3 top-1/2 transform -translate-y-1/2 transition-colors",
-            isFocused ? "text-foreground" : "text-muted-foreground"
+            isFocused ? "text-foreground" : "text-muted-foreground",
           )}
         />
         <Input
@@ -54,7 +54,7 @@ export const SearchBar = ({
           autoFocus={autoFocus}
           className={cn(
             "pl-9 pr-9 transition-all duration-200",
-            isFocused && "ring-2 ring-ring ring-offset-2"
+            isFocused && "ring-2 ring-ring ring-offset-2",
           )}
         />
         {value && (
@@ -69,5 +69,5 @@ export const SearchBar = ({
         )}
       </div>
     </div>
-  )
-} 
+  );
+};

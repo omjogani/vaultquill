@@ -5,28 +5,38 @@ This directory follows the **Atomic Design System** methodology to create a scal
 ## Structure
 
 ### Atoms (`/atoms`)
+
 The smallest, most basic UI elements that can't be broken down further:
+
 - **Icon**: Reusable icon component using Lucide React icons
 - **Typography**: Text components (H1, H2, H3, H4, Body, Caption, Label)
 - **Avatar**: User avatar component with fallback support
 
 ### Molecules (`/molecules`)
+
 Components that combine atoms to form more complex UI elements:
+
 - **CollectionItem**: Represents a folder/collection in the sidebar
 - **DocumentItem**: Represents a document in the sidebar or lists
 - **SearchBar**: Search functionality with clear button
 
 ### Organisms (`/organisms`)
+
 Complex components that combine molecules and atoms:
+
 - **Sidebar**: The left navigation panel with collections and documents
 - **DocumentEditor**: The main editor area with title and content editing
 
 ### Templates (`/templates`)
+
 Page-level components that define the overall layout:
+
 - **KnowledgeBaseLayout**: Main layout combining sidebar and editor
 
 ### Pages (`/pages`)
+
 Complete page components that use templates:
+
 - **KnowledgeBasePage**: The main knowledge base application page
 
 ## Features
@@ -48,7 +58,8 @@ Pages → Templates → Organisms → Molecules → Atoms
 ```
 
 This ensures:
+
 - **Reusability**: Lower-level components can be reused in multiple contexts
 - **Maintainability**: Changes to atoms automatically propagate upward
 - **Testability**: Each level can be tested independently
-- **Scalability**: New features can be built by combining existing components 
+- **Scalability**: New features can be built by combining existing components

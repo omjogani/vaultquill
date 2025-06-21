@@ -7,7 +7,7 @@ export const Route = createFileRoute("/example/guitars/$guitarId")({
   component: RouteComponent,
   loader: async ({ context, params }) => {
     await context.queryClient.prefetchQuery(
-      context.trpc.guitars.byId.queryOptions({ id: +params.guitarId })
+      context.trpc.guitars.byId.queryOptions({ id: +params.guitarId }),
     );
   },
 });
@@ -16,7 +16,7 @@ function RouteComponent() {
   const trpc = useTRPC();
   const { guitarId } = Route.useParams();
   const { data: guitar } = useQuery(
-    trpc.guitars.byId.queryOptions({ id: +guitarId })
+    trpc.guitars.byId.queryOptions({ id: +guitarId }),
   );
   const { addToCart } = useStore();
 
