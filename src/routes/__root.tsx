@@ -48,8 +48,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     <AppClerkProvider>
       <CartStoreProvider>
         <RootDocument>
-          <Header />
-
           <Outlet />
           <TanStackRouterDevtools />
 
