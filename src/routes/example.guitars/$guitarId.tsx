@@ -1,23 +1,24 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { useTRPC } from "@/trpc/react";
 import { useQuery } from "@tanstack/react-query";
+import { useTRPC } from "@/trpc/react";
+import { useStore } from "@/store/cart";
 
 export const Route = createFileRoute("/example/guitars/$guitarId")({
   component: RouteComponent,
   loader: async ({ context, params }) => {
     await context.queryClient.prefetchQuery(
-      context.trpc.guitars.byId.queryOptions({ id: +params.guitarId }),
+      context.trpc.guitars.byId.queryOptions({ id: +params.guitarId })
     );
   },
 });
 
 function RouteComponent() {
   const trpc = useTRPC();
-
   const { guitarId } = Route.useParams();
   const { data: guitar } = useQuery(
-    trpc.guitars.byId.queryOptions({ id: +guitarId }),
+    trpc.guitars.byId.queryOptions({ id: +guitarId })
   );
+  const { addToCart } = useStore();
 
   if (!guitar) {
     return <div>Guitar not found</div>;
@@ -38,7 +39,10 @@ function RouteComponent() {
           <div className="text-2xl font-bold text-emerald-400">
             ${guitar.price}
           </div>
-          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-lg transition-colors">
+          <button
+            onClick={() => addToCart(guitar.id)}
+            className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-lg transition-colors"
+          >
             Add to Cart
           </button>
         </div>

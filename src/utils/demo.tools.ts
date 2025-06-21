@@ -1,7 +1,7 @@
 import { experimental_createMCPClient, tool } from "ai";
 // import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { z } from "zod";
-import guitars from "../data/example-guitars";
+import { trpcClient } from "@/integrations/tanstack-query/root-provider";
 
 // Example of using an SSE MCP server
 // const mcpClient = await experimental_createMCPClient({
@@ -26,7 +26,7 @@ const getGuitars = tool({
   description: "Get all products from the database",
   parameters: z.object({}),
   execute: async () => {
-    return Promise.resolve(guitars);
+    return await trpcClient.guitars.list.query();
   },
 });
 

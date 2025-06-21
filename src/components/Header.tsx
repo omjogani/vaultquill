@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 
 import TanStackChatHeaderUser from "../integrations/tanchat/header-user.tsx";
+import HeaderUser from "@/integrations/clerk/header-user.tsx";
+import Cart from "./Cart.tsx";
 
 export default function Header() {
   return (
@@ -47,7 +49,9 @@ export default function Header() {
         </div>
       </nav>
 
-      <div>
+      <div className="flex flex-row gap-2">
+        <Cart />
+        <HeaderUser />
         <TanStackChatHeaderUser />
       </div>
     </header>
