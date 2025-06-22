@@ -46,13 +46,25 @@ export const CollectionItem = ({
 }: CollectionItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest('[data-radix-collection-item]') || 
+        (e.target as HTMLElement).closest('button')) {
+      return;
+    }
     onClick?.(id);
   };
 
   const handleToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     onToggle?.(id);
+  };
+
+  const handleToggleClick = () => {
+    onToggle?.(id);
+  };
+
+  const handleDropdownClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
   };
 
   return (
@@ -68,12 +80,18 @@ export const CollectionItem = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {hasChildren && (
-        <Icon
-          icon={isExpanded ? ChevronDown : ChevronRight}
+        <Button
+          variant="ghost"
           size="sm"
+          className="h-6 w-6 p-0 hover:bg-accent/50"
           onClick={handleToggle}
-          className="shrink-0 text-muted-foreground hover:text-foreground"
-        />
+        >
+          <Icon
+            icon={isExpanded ? ChevronDown : ChevronRight}
+            size="sm"
+            className="shrink-0 text-muted-foreground hover:text-foreground"
+          />
+        </Button>
       )}
 
       <Icon
@@ -84,18 +102,22 @@ export const CollectionItem = ({
 
       <Label className="flex-1 truncate text-sm">{name}</Label>
 
-      {(isHovered || isSelected) && (
+      <div className={cn(
+        "transition-opacity duration-200",
+        (isHovered || isSelected) ? "opacity-100" : "opacity-0"
+      )}>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
               size="sm"
-              className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100"
+              className="h-8 w-8 p-0"
+              onClick={handleDropdownClick}
             >
               <Icon icon={MoreHorizontal} size="sm" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" onClick={handleDropdownClick}>
             <DropdownMenuItem onClick={() => onCreateDocument?.(id)}>
               Add Document
             </DropdownMenuItem>
@@ -110,7 +132,7 @@ export const CollectionItem = ({
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )}
+      </div>
     </div>
   );
 };

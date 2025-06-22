@@ -36,8 +36,17 @@ export const DocumentItem = ({
 }: DocumentItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    // Prevent click when interacting with dropdown
+    if ((e.target as HTMLElement).closest('[data-radix-collection-item]') || 
+        (e.target as HTMLElement).closest('button')) {
+      return;
+    }
     onClick?.(id);
+  };
+
+  const handleDropdownClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
   };
 
   const formatDate = (date: Date) => {
@@ -81,18 +90,22 @@ export const DocumentItem = ({
         )}
       </div>
 
-      {(isHovered || isSelected) && (
+      <div className={cn(
+        "transition-opacity duration-200",
+        (isHovered || isSelected) ? "opacity-100" : "opacity-0"
+      )}>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
               size="sm"
-              className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100"
+              className="h-8 w-8 p-0"
+              onClick={handleDropdownClick}
             >
               <Icon icon={MoreHorizontal} size="sm" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" onClick={handleDropdownClick}>
             <DropdownMenuItem onClick={() => onRename?.(id)}>
               Rename
             </DropdownMenuItem>
@@ -107,7 +120,7 @@ export const DocumentItem = ({
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )}
+      </div>
     </div>
   );
 };
