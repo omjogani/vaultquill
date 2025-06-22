@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 
 import TanStackChatHeaderUser from "../integrations/tanchat/header-user.tsx";
-import HeaderUser from "@/integrations/clerk/header-user.tsx";
 import Cart from "./Cart.tsx";
+import HeaderUser from "@/integrations/clerk/header-user.tsx";
 
 export default function Header() {
   return (

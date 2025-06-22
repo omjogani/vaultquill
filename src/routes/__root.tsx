@@ -1,12 +1,11 @@
 import {
-  Outlet,
   HeadContent,
+  Outlet,
   Scripts,
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import Header from "../components/Header";
 import AppClerkProvider from "../integrations/clerk/provider";
 import TanstackQueryLayout from "../integrations/tanstack-query/layout";
 import { CartStoreProvider } from "../store/cart";
@@ -48,8 +47,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     <AppClerkProvider>
       <CartStoreProvider>
         <RootDocument>
-          <Header />
-
           <Outlet />
           <TanStackRouterDevtools />
 

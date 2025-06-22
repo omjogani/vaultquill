@@ -1,10 +1,10 @@
 import { TRPCError } from "@trpc/server";
-import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 import { getAuth } from "@clerk/tanstack-start/server";
 import { getWebRequest } from "vinxi/http";
 
 import { createTRPCRouter, publicProcedure } from "./init";
+import type { TRPCRouterRecord } from "@trpc/server";
 
 import guitars from "@/data/example-guitars";
 

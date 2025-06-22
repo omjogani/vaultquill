@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { ShoppingCart } from "lucide-react";
 import { useStore } from "@/store/cart";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,7 +9,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ShoppingCart } from "lucide-react";
 
 export default function Cart() {
   const { cart, guitars } = useStore();
