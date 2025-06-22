@@ -71,12 +71,16 @@ export const DocumentItem = ({
         "group flex items-center gap-2 px-2 py-2 rounded-md cursor-pointer transition-colors",
         "hover:bg-accent/50",
         isSelected && "bg-accent",
-        "ml-" + (level * 4 + 6), // Additional offset for documents under collections
+        "ml-" + ((level + 1) * 4 + 4),
       )}
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      <div className="w-3 h-3 flex items-center justify-start">
+        <div className="w-2 h-px bg-border"></div>
+      </div>
+      
       <Icon
         icon={FileText}
         size="sm"
@@ -84,7 +88,7 @@ export const DocumentItem = ({
       />
 
       <div className="flex-1 min-w-0">
-        <Label className="block truncate text-sm">{title || "Untitled"}</Label>
+        <Label className="block truncate text-sm font-normal">{title || "Untitled"}</Label>
         {lastModified && (
           <Caption className="text-xs">{formatDate(lastModified)}</Caption>
         )}

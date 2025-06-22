@@ -94,13 +94,15 @@ export const CollectionItem = ({
         </Button>
       )}
 
+      {!hasChildren && <div className="w-6"></div>}
+
       <Icon
         icon={isExpanded ? FolderOpen : Folder}
         size="sm"
         className="shrink-0 text-muted-foreground"
       />
 
-      <Label className="flex-1 truncate text-sm">{name}</Label>
+      <Label className="flex-1 truncate text-sm font-medium">{name}</Label>
 
       <div className={cn(
         "transition-opacity duration-200",
