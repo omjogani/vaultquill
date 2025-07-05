@@ -124,7 +124,8 @@ export const KnowledgeBaseLayout = ({
   const [selectedCollectionId, setSelectedCollectionId] = useState<
     string | null
   >(null);
-  const [collections, setCollections] = useState<Array<Collection>>(mockCollections);
+  const [collections, setCollections] =
+    useState<Array<Collection>>(mockCollections);
   const [orphanDocuments, setOrphanDocuments] =
     useState<Array<Document>>(mockOrphanDocuments);
 
@@ -177,7 +178,9 @@ export const KnowledgeBaseLayout = ({
   };
 
   const handleDocumentSave = (updatedDocument: Partial<Document>) => {
-    const updateInCollections = (collections: Array<Collection>): Array<Collection> => {
+    const updateInCollections = (
+      collections: Array<Collection>,
+    ): Array<Collection> => {
       return collections.map((collection) => ({
         ...collection,
         documents: collection.documents?.map((doc) =>

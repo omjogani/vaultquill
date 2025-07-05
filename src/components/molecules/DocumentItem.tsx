@@ -38,8 +38,10 @@ export const DocumentItem = ({
 
   const handleClick = (e: React.MouseEvent) => {
     // Prevent click when interacting with dropdown
-    if ((e.target as HTMLElement).closest('[data-radix-collection-item]') || 
-        (e.target as HTMLElement).closest('button')) {
+    if (
+      (e.target as HTMLElement).closest("[data-radix-collection-item]") ||
+      (e.target as HTMLElement).closest("button")
+    ) {
       return;
     }
     onClick?.(id);
@@ -80,7 +82,7 @@ export const DocumentItem = ({
       <div className="w-3 h-3 flex items-center justify-start">
         <div className="w-2 h-px bg-border"></div>
       </div>
-      
+
       <Icon
         icon={FileText}
         size="sm"
@@ -88,16 +90,20 @@ export const DocumentItem = ({
       />
 
       <div className="flex-1 min-w-0">
-        <Label className="block truncate text-sm font-normal">{title || "Untitled"}</Label>
+        <Label className="block truncate text-sm font-normal">
+          {title || "Untitled"}
+        </Label>
         {lastModified && (
           <Caption className="text-xs">{formatDate(lastModified)}</Caption>
         )}
       </div>
 
-      <div className={cn(
-        "transition-opacity duration-200",
-        (isHovered || isSelected) ? "opacity-100" : "opacity-0"
-      )}>
+      <div
+        className={cn(
+          "transition-opacity duration-200",
+          isHovered || isSelected ? "opacity-100" : "opacity-0",
+        )}
+      >
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
