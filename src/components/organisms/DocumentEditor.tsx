@@ -29,15 +29,7 @@ interface DocumentEditorProps {
 
 const INITIAL_DATA = {
   time: new Date().getTime(),
-  blocks: [
-    {
-      type: "header",
-      data: {
-        text: "This is a tutorial of Editor js",
-        level: 1,
-      },
-    },
-  ],
+  blocks: [],
 };
 
 export const DocumentEditor = ({
@@ -81,7 +73,7 @@ export const DocumentEditor = ({
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => {}}
+            onClick={() => console.log("Data: ", data)}
             disabled={false}
             className="gap-2"
           >

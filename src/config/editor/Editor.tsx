@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from "react";
 import EditorJS from "@editorjs/editorjs";
-import { EDITOR_JS_TOOLS } from "./tools";
+import { EDITOR_TOOLS } from "./tools";
 
 interface EditorProps {
   data: any;
@@ -16,7 +16,7 @@ const Editor = ({ data, onChange, editorBlock }: EditorProps) => {
       const editor = new EditorJS({
         holder: editorBlock,
         data: data,
-        tools: EDITOR_JS_TOOLS,
+        tools: EDITOR_TOOLS,
         async onChange(api) {
           const data = await api.saver.save();
           onChange(data);
@@ -32,7 +32,11 @@ const Editor = ({ data, onChange, editorBlock }: EditorProps) => {
     };
   }, []);
 
-  return <div id={editorBlock} />;
+  return (
+    <article className="prose">
+      <div id={editorBlock} />
+    </article>
+  );
 };
 
 export default memo(Editor);
