@@ -27,7 +27,7 @@ html {
 /* Markdown content styles */
 .prose {
   max-width: none;
-  color: #e5e7eb; /* text-gray-200 */
+  /* color: #e5e7eb; text-gray-200 */
 }
 
 /* .prose p {
@@ -62,7 +62,7 @@ html {
 .prose h2,
 .prose h3,
 .prose h4 {
-  color: #f9fafb; /* text-gray-50 */
+  /* color: #f9fafb; text-gray-50 */
   /* margin-top: 2em; */
   /* margin-bottom: 1em; */
 }
@@ -80,7 +80,8 @@ html {
 }
 
 .prose blockquote {
-  border-left-color: #f97316; /* orange-500 */
+  border-left-color: #f97316;
+  /* orange-500 */
   background-color: rgba(249, 115, 22, 0.1);
   padding: 1em;
   margin: 1.25em 0;
@@ -93,14 +94,16 @@ html {
 }
 
 .prose a {
-  color: #f97316; /* orange-500 */
+  color: #f97316;
+  /* orange-500 */
   text-decoration: underline;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.2em;
 }
 
 .prose a:hover {
-  color: #fb923c; /* orange-400 */
+  color: #fb923c;
+  /* orange-400 */
 }
 
 .prose table {
@@ -189,7 +192,8 @@ html {
 }
 
 .prose strong {
-  color: #f9fafb; /* text-gray-50 */
+  color: #f9fafb;
+  /* text-gray-50 */
   font-weight: 600;
 }
 
@@ -198,10 +202,12 @@ html {
 }
 
 .prose blockquote {
-  border-left: 4px solid #f97316; /* orange-500 */
+  border-left: 4px solid #f97316;
+  /* orange-500 */
   padding-left: 1em;
   margin: 1em 0;
-  color: #d1d5db; /* text-gray-300 */
+  color: #d1d5db;
+  /* text-gray-300 */
 }
 
 /* Ensure code blocks match the AI's formatting */
