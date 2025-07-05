@@ -1,4 +1,4 @@
-import { BookOpen, FileText, Folder, Search, Zap, Shield } from "lucide-react";
+import { BookOpen, FileText, Folder, Search, Shield, Zap } from "lucide-react";
 
 export const landingPageData = {
   hero: {

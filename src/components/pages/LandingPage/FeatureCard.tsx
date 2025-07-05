@@ -1,7 +1,7 @@
+import type { LucideIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/atoms/Icon";
 import { Body } from "@/components/atoms/Typography";
-import type { LucideIcon } from "lucide-react";
 
 interface FeatureCardProps {
   icon: LucideIcon;

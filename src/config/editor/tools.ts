@@ -6,12 +6,12 @@ export const EDITOR_TOOLS = {
   header: {
     class: Header,
     config: {
-      placeholder: 'Enter a header',
+      placeholder: "Enter a header",
       levels: [1, 2, 3, 4, 5, 6],
-      defaultLevel: 1
+      defaultLevel: 1,
     },
     inlineToolbar: true,
-    shortcut: 'CMD+SHIFT+H'
+    shortcut: "CMD+SHIFT+H",
   },
   linkTool: {
     class: LinkTool,

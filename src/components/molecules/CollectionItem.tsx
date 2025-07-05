@@ -47,8 +47,10 @@ export const CollectionItem = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest('[data-radix-collection-item]') || 
-        (e.target as HTMLElement).closest('button')) {
+    if (
+      (e.target as HTMLElement).closest("[data-radix-collection-item]") ||
+      (e.target as HTMLElement).closest("button")
+    ) {
       return;
     }
     onClick?.(id);
@@ -104,10 +106,12 @@ export const CollectionItem = ({
 
       <Label className="flex-1 truncate text-sm font-medium">{name}</Label>
 
-      <div className={cn(
-        "transition-opacity duration-200",
-        (isHovered || isSelected) ? "opacity-100" : "opacity-0"
-      )}>
+      <div
+        className={cn(
+          "transition-opacity duration-200",
+          isHovered || isSelected ? "opacity-100" : "opacity-0",
+        )}
+      >
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button

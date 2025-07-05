@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
+import { landingPageData } from "./landing-page-data";
 import { Button } from "@/components/ui/button";
 import { Body, H1, H2 } from "@/components/atoms/Typography";
 import { Icon } from "@/components/atoms/Icon";
-import { landingPageData } from "./landing-page-data";
 
 export const Hero = () => {
   const {
