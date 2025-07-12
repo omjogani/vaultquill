@@ -1,15 +1,15 @@
-import { Suspense } from 'react'
-import { createFileRoute } from '@tanstack/react-router'
-import { useQuery } from 'convex/react'
+import { Suspense } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "convex/react";
 
-import { api } from '../../convex/_generated/api'
+import { api } from "../../convex/_generated/api";
 
-export const Route = createFileRoute('/demo/convex')({
+export const Route = createFileRoute("/demo/convex")({
   component: App,
-})
+});
 
 function Products() {
-  const products = useQuery(api.products.get)
+  const products = useQuery(api.products.get);
 
   return (
     <ul>
@@ -19,7 +19,7 @@ function Products() {
         </li>
       ))}
     </ul>
-  )
+  );
 }
 
 function App() {
@@ -29,5 +29,5 @@ function App() {
         <Products />
       </Suspense>
     </div>
-  )
+  );
 }

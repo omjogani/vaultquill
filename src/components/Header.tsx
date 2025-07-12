@@ -1,6 +1,6 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
 
-import ClerkHeader from '../integrations/clerk/header-user.tsx'
+import ClerkHeader from "../integrations/clerk/header-user.tsx";
 
 export default function Header() {
   return (
@@ -51,5 +51,5 @@ export default function Header() {
         <ClerkHeader />
       </div>
     </header>
-  )
+  );
 }
