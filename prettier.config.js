@@ -2,10 +2,9 @@
 
 /** @type {import('prettier').Config} */
 const config = {
-  semi: true,
-  singleQuote: false,
+  semi: false,
+  singleQuote: true,
   trailingComma: "all",
-  endOfLine: "lf",
 };
 
 export default config;

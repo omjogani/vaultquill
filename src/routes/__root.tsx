@@ -1,61 +1,69 @@
 import {
-  HeadContent,
   Outlet,
+  HeadContent,
   Scripts,
   createRootRouteWithContext,
-} from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+} from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
-import AppClerkProvider from "../integrations/clerk/provider";
-import TanstackQueryLayout from "../integrations/tanstack-query/layout";
-import { CartStoreProvider } from "../store/cart";
+import Header from '../components/Header'
 
-import appCss from "../styles.css?url";
+import ClerkProvider from '../integrations/clerk/provider.tsx'
 
-import type { QueryClient } from "@tanstack/react-query";
-import type { TRPCRouter } from "../trpc/router";
-import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
+import ConvexProvider from '../integrations/convex/provider.tsx'
+
+import TanStackQueryLayout from '../integrations/tanstack-query/layout.tsx'
+
+import appCss from '../styles.css?url'
+
+import type { QueryClient } from '@tanstack/react-query'
+
+import type { TRPCRouter } from '@/integrations/trpc/router'
+import type { TRPCOptionsProxy } from '@trpc/tanstack-react-query'
 
 interface MyRouterContext {
-  queryClient: QueryClient;
-  trpc: TRPCOptionsProxy<TRPCRouter>;
+  queryClient: QueryClient
+
+  trpc: TRPCOptionsProxy<TRPCRouter>
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
       {
-        charSet: "utf-8",
+        charSet: 'utf-8',
       },
       {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
       },
       {
-        title: "TanStack Start Starter",
+        title: 'TanStack Start Starter',
       },
     ],
     links: [
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         href: appCss,
       },
     ],
   }),
 
   component: () => (
-    <AppClerkProvider>
-      <CartStoreProvider>
-        <RootDocument>
+    <RootDocument>
+      <ClerkProvider>
+        <ConvexProvider>
+          <Header />
+
           <Outlet />
           <TanStackRouterDevtools />
 
-          <TanstackQueryLayout />
-        </RootDocument>
-      </CartStoreProvider>
-    </AppClerkProvider>
+          <TanStackQueryLayout />
+        </ConvexProvider>
+      </ClerkProvider>
+    </RootDocument>
   ),
-});
+})
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -68,5 +76,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
