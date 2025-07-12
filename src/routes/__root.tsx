@@ -6,18 +6,24 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import AppClerkProvider from "../integrations/clerk/provider";
-import TanstackQueryLayout from "../integrations/tanstack-query/layout";
-import { CartStoreProvider } from "../store/cart";
+import Header from "../components/Header";
+
+import ClerkProvider from "../integrations/clerk/provider.tsx";
+
+import ConvexProvider from "../integrations/convex/provider.tsx";
+
+import TanStackQueryLayout from "../integrations/tanstack-query/layout.tsx";
 
 import appCss from "../styles.css?url";
 
 import type { QueryClient } from "@tanstack/react-query";
-import type { TRPCRouter } from "../trpc/router";
+
+import type { TRPCRouter } from "@/integrations/trpc/router";
 import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 
 interface MyRouterContext {
   queryClient: QueryClient;
+
   trpc: TRPCOptionsProxy<TRPCRouter>;
 }
 
@@ -44,16 +50,18 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   }),
 
   component: () => (
-    <AppClerkProvider>
-      <CartStoreProvider>
-        <RootDocument>
+    <RootDocument>
+      <ClerkProvider>
+        <ConvexProvider>
+          <Header />
+
           <Outlet />
           <TanStackRouterDevtools />
 
-          <TanstackQueryLayout />
-        </RootDocument>
-      </CartStoreProvider>
-    </AppClerkProvider>
+          <TanStackQueryLayout />
+        </ConvexProvider>
+      </ClerkProvider>
+    </RootDocument>
   ),
 });
 

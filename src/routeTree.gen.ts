@@ -11,38 +11,24 @@
 import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as KnowledgeBaseRouteImport } from './routes/knowledge-base'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ExampleChatRouteImport } from './routes/example.chat'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo.table'
 import { Route as DemoStoreRouteImport } from './routes/demo.store'
-import { Route as ExampleGuitarsIndexRouteImport } from './routes/example.guitars/index'
-import { Route as ExampleGuitarsGuitarIdRouteImport } from './routes/example.guitars/$guitarId'
+import { Route as DemoConvexRouteImport } from './routes/demo.convex'
+import { Route as DemoClerkRouteImport } from './routes/demo.clerk'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo.start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo.start.api-request'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo.form.simple'
 import { Route as DemoFormAddressRouteImport } from './routes/demo.form.address'
-import { ServerRoute as ApiSseServerRouteImport } from './routes/api.sse'
-import { ServerRoute as ApiMessagesServerRouteImport } from './routes/api.messages'
 import { ServerRoute as ApiDemoNamesServerRouteImport } from './routes/api.demo-names'
 import { ServerRoute as ApiTrpcSplatServerRouteImport } from './routes/api.trpc.$'
 
 const rootServerRouteImport = createServerRootRoute()
 
-const KnowledgeBaseRoute = KnowledgeBaseRouteImport.update({
-  id: '/knowledge-base',
-  path: '/knowledge-base',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExampleChatRoute = ExampleChatRouteImport.update({
-  id: '/example/chat',
-  path: '/example/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
@@ -60,14 +46,14 @@ const DemoStoreRoute = DemoStoreRouteImport.update({
   path: '/demo/store',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExampleGuitarsIndexRoute = ExampleGuitarsIndexRouteImport.update({
-  id: '/example/guitars/',
-  path: '/example/guitars/',
+const DemoConvexRoute = DemoConvexRouteImport.update({
+  id: '/demo/convex',
+  path: '/demo/convex',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExampleGuitarsGuitarIdRoute = ExampleGuitarsGuitarIdRouteImport.update({
-  id: '/example/guitars/$guitarId',
-  path: '/example/guitars/$guitarId',
+const DemoClerkRoute = DemoClerkRouteImport.update({
+  id: '/demo/clerk',
+  path: '/demo/clerk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
@@ -90,16 +76,6 @@ const DemoFormAddressRoute = DemoFormAddressRouteImport.update({
   path: '/demo/form/address',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiSseServerRoute = ApiSseServerRouteImport.update({
-  id: '/api/sse',
-  path: '/api/sse',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
-const ApiMessagesServerRoute = ApiMessagesServerRouteImport.update({
-  id: '/api/messages',
-  path: '/api/messages',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
 const ApiDemoNamesServerRoute = ApiDemoNamesServerRouteImport.update({
   id: '/api/demo-names',
   path: '/api/demo-names',
@@ -113,166 +89,125 @@ const ApiTrpcSplatServerRoute = ApiTrpcSplatServerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/knowledge-base': typeof KnowledgeBaseRoute
+  '/demo/clerk': typeof DemoClerkRoute
+  '/demo/convex': typeof DemoConvexRoute
   '/demo/store': typeof DemoStoreRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/example/chat': typeof ExampleChatRoute
   '/demo/form/address': typeof DemoFormAddressRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
-  '/example/guitars': typeof ExampleGuitarsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/knowledge-base': typeof KnowledgeBaseRoute
+  '/demo/clerk': typeof DemoClerkRoute
+  '/demo/convex': typeof DemoConvexRoute
   '/demo/store': typeof DemoStoreRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/example/chat': typeof ExampleChatRoute
   '/demo/form/address': typeof DemoFormAddressRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
-  '/example/guitars': typeof ExampleGuitarsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/knowledge-base': typeof KnowledgeBaseRoute
+  '/demo/clerk': typeof DemoClerkRoute
+  '/demo/convex': typeof DemoConvexRoute
   '/demo/store': typeof DemoStoreRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/example/chat': typeof ExampleChatRoute
   '/demo/form/address': typeof DemoFormAddressRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
-  '/example/guitars/': typeof ExampleGuitarsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/knowledge-base'
+    | '/demo/clerk'
+    | '/demo/convex'
     | '/demo/store'
     | '/demo/table'
     | '/demo/tanstack-query'
-    | '/example/chat'
     | '/demo/form/address'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
-    | '/example/guitars/$guitarId'
-    | '/example/guitars'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/knowledge-base'
+    | '/demo/clerk'
+    | '/demo/convex'
     | '/demo/store'
     | '/demo/table'
     | '/demo/tanstack-query'
-    | '/example/chat'
     | '/demo/form/address'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
-    | '/example/guitars/$guitarId'
-    | '/example/guitars'
   id:
     | '__root__'
     | '/'
-    | '/knowledge-base'
+    | '/demo/clerk'
+    | '/demo/convex'
     | '/demo/store'
     | '/demo/table'
     | '/demo/tanstack-query'
-    | '/example/chat'
     | '/demo/form/address'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
-    | '/example/guitars/$guitarId'
-    | '/example/guitars/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  KnowledgeBaseRoute: typeof KnowledgeBaseRoute
+  DemoClerkRoute: typeof DemoClerkRoute
+  DemoConvexRoute: typeof DemoConvexRoute
   DemoStoreRoute: typeof DemoStoreRoute
   DemoTableRoute: typeof DemoTableRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
-  ExampleChatRoute: typeof ExampleChatRoute
   DemoFormAddressRoute: typeof DemoFormAddressRoute
   DemoFormSimpleRoute: typeof DemoFormSimpleRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
-  ExampleGuitarsGuitarIdRoute: typeof ExampleGuitarsGuitarIdRoute
-  ExampleGuitarsIndexRoute: typeof ExampleGuitarsIndexRoute
 }
 export interface FileServerRoutesByFullPath {
   '/api/demo-names': typeof ApiDemoNamesServerRoute
-  '/api/messages': typeof ApiMessagesServerRoute
-  '/api/sse': typeof ApiSseServerRoute
   '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRoutesByTo {
   '/api/demo-names': typeof ApiDemoNamesServerRoute
-  '/api/messages': typeof ApiMessagesServerRoute
-  '/api/sse': typeof ApiSseServerRoute
   '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
   '/api/demo-names': typeof ApiDemoNamesServerRoute
-  '/api/messages': typeof ApiMessagesServerRoute
-  '/api/sse': typeof ApiSseServerRoute
   '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/demo-names' | '/api/messages' | '/api/sse' | '/api/trpc/$'
+  fullPaths: '/api/demo-names' | '/api/trpc/$'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/demo-names' | '/api/messages' | '/api/sse' | '/api/trpc/$'
-  id:
-    | '__root__'
-    | '/api/demo-names'
-    | '/api/messages'
-    | '/api/sse'
-    | '/api/trpc/$'
+  to: '/api/demo-names' | '/api/trpc/$'
+  id: '__root__' | '/api/demo-names' | '/api/trpc/$'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
   ApiDemoNamesServerRoute: typeof ApiDemoNamesServerRoute
-  ApiMessagesServerRoute: typeof ApiMessagesServerRoute
-  ApiSseServerRoute: typeof ApiSseServerRoute
   ApiTrpcSplatServerRoute: typeof ApiTrpcSplatServerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/knowledge-base': {
-      id: '/knowledge-base'
-      path: '/knowledge-base'
-      fullPath: '/knowledge-base'
-      preLoaderRoute: typeof KnowledgeBaseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/example/chat': {
-      id: '/example/chat'
-      path: '/example/chat'
-      fullPath: '/example/chat'
-      preLoaderRoute: typeof ExampleChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/tanstack-query': {
@@ -296,18 +231,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStoreRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/example/guitars/': {
-      id: '/example/guitars/'
-      path: '/example/guitars'
-      fullPath: '/example/guitars'
-      preLoaderRoute: typeof ExampleGuitarsIndexRouteImport
+    '/demo/convex': {
+      id: '/demo/convex'
+      path: '/demo/convex'
+      fullPath: '/demo/convex'
+      preLoaderRoute: typeof DemoConvexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/example/guitars/$guitarId': {
-      id: '/example/guitars/$guitarId'
-      path: '/example/guitars/$guitarId'
-      fullPath: '/example/guitars/$guitarId'
-      preLoaderRoute: typeof ExampleGuitarsGuitarIdRouteImport
+    '/demo/clerk': {
+      id: '/demo/clerk'
+      path: '/demo/clerk'
+      fullPath: '/demo/clerk'
+      preLoaderRoute: typeof DemoClerkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/start/server-funcs': {
@@ -342,20 +277,6 @@ declare module '@tanstack/react-router' {
 }
 declare module '@tanstack/react-start/server' {
   interface ServerFileRoutesByPath {
-    '/api/sse': {
-      id: '/api/sse'
-      path: '/api/sse'
-      fullPath: '/api/sse'
-      preLoaderRoute: typeof ApiSseServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/messages': {
-      id: '/api/messages'
-      path: '/api/messages'
-      fullPath: '/api/messages'
-      preLoaderRoute: typeof ApiMessagesServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
     '/api/demo-names': {
       id: '/api/demo-names'
       path: '/api/demo-names'
@@ -375,25 +296,21 @@ declare module '@tanstack/react-start/server' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  KnowledgeBaseRoute: KnowledgeBaseRoute,
+  DemoClerkRoute: DemoClerkRoute,
+  DemoConvexRoute: DemoConvexRoute,
   DemoStoreRoute: DemoStoreRoute,
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
-  ExampleChatRoute: ExampleChatRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,
   DemoFormSimpleRoute: DemoFormSimpleRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
-  ExampleGuitarsGuitarIdRoute: ExampleGuitarsGuitarIdRoute,
-  ExampleGuitarsIndexRoute: ExampleGuitarsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
   ApiDemoNamesServerRoute: ApiDemoNamesServerRoute,
-  ApiMessagesServerRoute: ApiMessagesServerRoute,
-  ApiSseServerRoute: ApiSseServerRoute,
   ApiTrpcSplatServerRoute: ApiTrpcSplatServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport

@@ -5,7 +5,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 
-const HeaderUser = () => {
+export default function HeaderUser() {
   return (
     <>
       <SignedIn>
@@ -16,6 +16,4 @@ const HeaderUser = () => {
       </SignedOut>
     </>
   );
-};
-
-export default HeaderUser;
+}

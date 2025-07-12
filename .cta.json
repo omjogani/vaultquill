@@ -1,5 +1,5 @@
 {
-  "projectName": "vaultquill",
+  "projectName": ".",
   "mode": "file-router",
   "typescript": true,
   "tailwind": true,
@@ -9,12 +9,14 @@
   "framework": "react-cra",
   "chosenAddOns": [
     "eslint",
-    "tanstack-query",
-    "table",
-    "start",
-    "shadcn",
+    "clerk",
+    "convex",
     "form",
-    "tanchat",
-    "store"
+    "shadcn",
+    "start",
+    "store",
+    "tRPC",
+    "table",
+    "tanstack-query"
   ]
 }

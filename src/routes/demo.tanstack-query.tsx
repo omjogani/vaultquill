@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
+import { useTRPC } from "@/integrations/trpc/react";
+
 export const Route = createFileRoute("/demo/tanstack-query")({
+  loader: async ({ context }) => {
+    await context.queryClient.prefetchQuery(
+      context.trpc.people.list.queryOptions(),
+    );
+  },
+
   component: TanStackQueryDemo,
 });
 
 function TanStackQueryDemo() {
-  const { data } = useQuery({
-    queryKey: ["people"],
-    queryFn: () =>
-      Promise.resolve([{ name: "John Doe" }, { name: "Jane Doe" }]),
-    initialData: [],
-  });
+  const trpc = useTRPC();
+  const { data } = useQuery(trpc.people.list.queryOptions());
 
   return (
     <div className="p-4">
